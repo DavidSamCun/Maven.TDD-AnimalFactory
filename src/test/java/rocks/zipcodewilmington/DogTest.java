@@ -29,8 +29,65 @@ public class DogTest {
 
     }
     // TODO - Create tests for `speak`
+
+    @Test
+    public void speakTest(){
+
+        //Given
+        String dogname = "Balto";
+        Date birthday = new Date(2020,11,03);
+        int iD = 4321;
+
+        //When
+        Dog dog1 = new Dog(dogname, birthday, iD);
+        String expectedSpeak = "bark!";
+
+        //Then
+        String actual = dog1.speak();
+        Assert.assertEquals(expectedSpeak,actual);
+
+    }
+
     // TODO - Create tests for `setBirthDate(Date birthDate)`
+    @Test
+    public void birthdayTest(){
+
+
+        //Given
+        String dogname = "Balto";
+        Date birthday = new Date(2020,11,03);
+        int iD = 4321;
+
+        //When
+        Dog dog1 = new Dog(dogname, birthday, iD);
+
+        //Then
+        Date actualBirthday = dog1.getBirthDate();
+        Assert.assertEquals(birthday,actualBirthday);
+
+
+    }
+
     // TODO - Create tests for `void eat(Food food)`
+    @Test
+    public void eatTest(){
+
+        //Given
+        String dogname = "Balto";
+        Date birthday = new Date(2020,11,03);
+        int iD = 4321;
+
+        //When
+        Dog dog1 = new Dog(dogname,birthday,iD);
+        Food chow = new Food();
+        dog1.eat(chow);
+
+        //Then
+        int expectedFood = 1;
+        int actualFood = dog1.getNumberOfMealsEaten();
+        Assert.assertEquals(expectedFood, actualFood);
+
+    }
     // TODO - Create tests for `Integer getId()`
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
     // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
