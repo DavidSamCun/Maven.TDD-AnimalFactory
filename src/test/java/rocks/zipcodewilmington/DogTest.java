@@ -4,17 +4,38 @@ import org.junit.Assert;
 import org.junit.Test;
 import rocks.zipcodewilmington.animals.Dog;
 
+import java.util.Date;
+
 /**
  * @author leon on 4/19/18.
  */
 public class DogTest {
     // TODO - Create tests for `new Dog(String name, Date birthDate, Integer id)`
+
+    @Test
+    public void newDogTest(){
+
+        //Given
+        String dogname = "Balto";
+        Date birthday = new Date(2020,11,03);
+        int iD = 4321;
+
+        //When
+        Dog dog1 = new Dog(dogname, birthday, iD);
+        String expectName = "Balto";
+        //Then
+        String actual = dog1.getName();
+        Assert.assertEquals(expectName, actual);
+
+    }
     // TODO - Create tests for `speak`
     // TODO - Create tests for `setBirthDate(Date birthDate)`
     // TODO - Create tests for `void eat(Food food)`
     // TODO - Create tests for `Integer getId()`
     // TODO - Create test to check Animal inheritance; google search `java instanceof keyword`
     // TODO - Create test to check Mammal inheritance; google search `java instanceof keyword`
+
+
     @Test
     public void setNameTest() {
         // Given (a name exists and a dog exists)

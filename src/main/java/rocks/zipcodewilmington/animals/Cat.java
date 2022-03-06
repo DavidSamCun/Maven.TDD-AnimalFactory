@@ -1,6 +1,6 @@
 package rocks.zipcodewilmington.animals;
-
 import java.util.Date;
+
 
 /**
  * @author leon on 4/19/18.
