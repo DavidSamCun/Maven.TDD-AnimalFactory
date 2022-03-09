@@ -15,16 +15,16 @@ import java.util.Date;
  */
 public class DogHouseTest {
     // TODO - Create tests for `void add(Dog dog)`
-
+    @Test
     public void testAddingDog(){
 
         //Given
         Integer iD = 1234;
-        String catName = "Todd";
+        String dogName = "Todd";
         Date birth = new Date(2020, 11, 03);
+        Dog dogTodd = new Dog(dogName,birth,iD);
 
         //When
-        Dog dogTodd = new Dog(catName,birth,iD);
         DogHouse.add(dogTodd);
         int expectedDogAmnt = 1;
 
@@ -42,8 +42,76 @@ public class DogHouseTest {
     }
 
     // TODO - Create tests for `void remove(Integer id)`
+    @Test
+    public void removeId(){
+
+        //Given
+        Integer iD = 5678;
+        String dogName = "Rusty";
+        Date birth = new Date(2020, 11, 03);
+        Dog dogRusty = new Dog(dogName,birth,iD);
+        int expected = 0;
+
+        //When
+        DogHouse.add(dogRusty);
+        DogHouse.remove(5678);
+        int actualDogAmnt = DogHouse.getNumberOfDogs();
+
+        //Then
+        Assert.assertEquals(expected,actualDogAmnt);
+        DogHouse.clear();
+    }
+
+
     // TODO - Create tests for `void remove(Dog dog)`
+    @Test
+    public void removeDog(){
+
+        //Given
+        Integer iD = 1234;
+        String dogName = "Rusty";
+        Date birth = new Date(2020, 11, 03);
+        Dog dogRusty = new Dog(dogName,birth,iD);
+        int expected = 0;
+
+        //When
+        DogHouse.add(dogRusty);
+        DogHouse.remove(dogRusty);
+        int actualDogAmnt = DogHouse.getNumberOfDogs();
+
+        //Then
+        Assert.assertEquals(expected,actualDogAmnt);
+        DogHouse.clear();
+    }
     // TODO - Create tests for `Dog getDogById(Integer id)`
+    @Test
+    public void getDogByIdTest(){
+
+        //Given
+        Integer iD = 1234;
+        String dogName = "Rusty";
+        Date birth = new Date(2020, 11, 03);
+        Dog dogRusty = new Dog(dogName,birth,iD);
+
+        Integer iD2 = 4321;
+        String dogName2 = "Meaner";
+        Date birth2 = new Date(2020, 02, 03);
+        Dog dogMeaner = new Dog(dogName2,birth2,iD2);
+        //When
+
+        DogHouse.add(dogMeaner);
+        DogHouse.add(dogRusty);
+        Dog actualDog = DogHouse.getDogById(iD2);
+        Dog expected = dogMeaner;
+
+        //Then
+        Assert.assertEquals(expected,actualDog);
+
+        //Clear
+        DogHouse.clear();
+    }
+
+
     // TODO - Create tests for `Integer getNumberOfDogs()`
 
     @Test
@@ -59,5 +127,8 @@ public class DogHouseTest {
 
         // Then
         DogHouse.getNumberOfDogs();
+
+        //clear
+        DogHouse.clear();
     }
 }
